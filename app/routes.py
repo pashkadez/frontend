@@ -15,4 +15,3 @@ from app import app
 def index():
     user = {'username': 'Oleksii'}
     return render_template("index.html", title="Kv-DevOps-094", user=user)
- 
