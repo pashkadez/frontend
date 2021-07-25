@@ -19,9 +19,14 @@
         </thead>
         <tbody>
             {% for issue in issues %}
-                <tr>
+                <tr class="card-list">
                     <td>{{ issue.issue_id }}</td>
-                    <td>{{ issue.avatar_url }}</td>
+                    <td class="card card--opened">
+                        <a href="{{ issue.avatar_url }}">
+                            <img class="card__photo" src="{{ issue.avatar_url }}" alt="">
+                        </a>
+                    </td>
+<!--                    <td>{{ issue.avatar_url }}</td>-->
                     <td>{{ issue.user_id }}</td>
                     <td>{{ issue.issue_action }}</td>
                     <td>{{ issue.issue_title }}</td>
