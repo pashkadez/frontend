@@ -2,4 +2,42 @@
 
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
+    <hr>
+    <table id="data" class="table table-striped">
+        <thead>
+            <tr>
+                <th>issue id</th>
+                <th>avatar url</th>
+                <th>user id</th>
+                <th>issue action</th>
+                <th>issue title</th>
+                <th>issue state</th>
+                <th>issue html url</th>
+                <th>modified date</th>
+                <th>user html url</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for issue in issues %}
+                <tr>
+                    <td>{{ issue.issue_id }}</td>
+                    <td>{{ issue.avatar_url }}</td>
+                    <td>{{ issue.user_id }}</td>
+                    <td>{{ issue.issue_action }}</td>
+                    <td>{{ issue.issue_title }}</td>
+                    <td>{{ issue.issue_state }}</td>
+                    <td>{{ issue.issue_html_url }}</td>
+                    <td>{{ issue.modified_date }}</td>
+                    <td>{{ issue.user_html_url }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
 {% endblock %}

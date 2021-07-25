@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
-from app.models import User
+from app.models import User, Issue
 from werkzeug.urls import url_parse
 
 
@@ -17,8 +17,8 @@ from werkzeug.urls import url_parse
 @app.route("/index")
 @login_required
 def index():
-    user = {'username': 'Oleksii'}
-    return render_template("index.html", title="Kv-DevOps-094", user=user)
+    issues = Issue.query
+    return render_template("index.html", title="Kv-DevOps-094", issues=issues)
 
 
 @app.route("/login", methods=["GET", "POST"])
