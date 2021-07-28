@@ -6,6 +6,7 @@ WORKDIR /home/serve
 
 COPY requirements.txt requirements.txt
 RUN python -m venv .venv
+RUN source .venv/bin/activate
 RUN .venv/bin/pip install -r requirements.txt
 
 COPY app app
