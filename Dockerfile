@@ -10,8 +10,7 @@ RUN pip3 install -r requirements.txt
 COPY app app
 COPY app.db app.db
 COPY migrations migrations
-COPY frontend.py config.py boot.sh ./
-RUN chmod +x boot.sh
+COPY frontend.py config.py./
 
 ENV FLASK_APP frontend.py
 
