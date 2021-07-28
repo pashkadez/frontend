@@ -5,11 +5,10 @@ RUN useradd serve
 WORKDIR /home/serve
 
 COPY requirements.txt requirements.txt
-RUN python -m venv .venv
-RUN source .venv/bin/activate
-RUN .venv/bin/pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY app app
+COPY app.db app.db
 COPY migrations migrations
 COPY frontend.py config.py boot.sh ./
 RUN chmod +x boot.sh
@@ -20,4 +19,5 @@ RUN chown -R serve:serve ./
 USER serve
 
 EXPOSE 5000
-ENTRYPOINT ["./boot.sh"]
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
