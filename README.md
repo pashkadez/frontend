@@ -3,7 +3,7 @@
 ### How to run a project
 
 ```
-git@github.com:Kv-DevOps-094/frontend.git
+git clone git@github.com:Kv-DevOps-094/frontend.git
 cd frontend
 python -m venv .venv
 source .venv/bin/activate
