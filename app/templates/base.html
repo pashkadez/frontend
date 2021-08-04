@@ -15,9 +15,8 @@
         	<h1>Kv-DevOps-094</h1>
             <nav class="cl-effect-3">
                 <a href="{{ url_for('getIssues') }}">Home</a>
-                <a href="{{ url_for('getIssuesByLabel', bug='bug', duplicate='duplicate') }}">Bug Report</a>
-                <a href="issues/by-label/bug">Bug Report</a>
-                <a href="issues/by-label/bug">Bug Report</a>
+                <a href="/issues/by-label/duplicate">Duplicate</a>
+                <a href="/issues/by-label/bug">Bug Report</a>
             </nav>
         	<hr>
         	{% block content %}{% endblock %}
