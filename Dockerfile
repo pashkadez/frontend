@@ -8,7 +8,6 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY app app
-COPY migrations migrations
 COPY frontend.py config.py ./
 
 ENV FLASK_APP frontend.py
@@ -16,6 +15,6 @@ ENV FLASK_APP frontend.py
 RUN chown -R serve:serve ./
 USER serve
 
-EXPOSE 5000
+EXPOSE 55000
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
