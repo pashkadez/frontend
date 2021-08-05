@@ -3,7 +3,7 @@ from app import app
 import requests
 import json
 
-HOST = '127.0.0.1'
+HOST = '0.0.0.0'
 PORT = '5000'
 
 
@@ -31,16 +31,8 @@ def getLabels():
 
 @app.route('/issues/by-label/<label>', methods=['GET'])
 def getIssuesByLabel(label):
-    request = requests.get(f'http://{HOST}:{PORT}/issues/by-label/bug')
+    request = requests.get(f'http://{HOST}:{PORT}/issues/by-label/{label}')
     request_data = json.loads(request.content)
-#    return render_template('issues_by_label.html', request_data=request_data, bug='bug', duplicate='duplicate')
-    return render_template('bug.html', request_data=request_data)
-
-
-def getIssuesByLabel1(label):
-    request = requests.get(f'http://{HOST}:{PORT}/issues/by-label/duplicate')
-    request_data = json.loads(request.content)
-#    return render_template('issues_by_label.html', request_data=request_data, bug='bug', duplicate='duplicate')
     return render_template('bug.html', request_data=request_data)
 
 
