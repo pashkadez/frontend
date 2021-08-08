@@ -3,8 +3,9 @@ from app import app
 import requests
 import json
 
-HOST = '0.0.0.0'
-PORT = '5001'
+# HOST = '0.0.0.0'
+HOST = 'restapi'
+PORT = '5000'
 
 
 @app.route('/', methods=['GET'])
