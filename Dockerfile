@@ -15,6 +15,6 @@ ENV FLASK_APP frontend.py
 RUN chown -R serve:serve ./
 USER serve
 
-EXPOSE 55000
+EXPOSE 80
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
