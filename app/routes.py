@@ -2,9 +2,10 @@ from flask import render_template, redirect, url_for, Flask
 from app import app
 import requests
 import json
+import os
 
-HOST = 'restapi'
-PORT = '5000'
+HOST = os.environ.get('RESTAPI_HOST')
+PORT = os.environ.get('RESTAPI_PORT')
 
 
 @app.route('/', methods=['GET'])
