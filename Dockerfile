@@ -1,19 +1,18 @@
-FROM python:3.9-slim
+FROM python:3.9-alpine
 
-RUN useradd serve
+RUN pip3 install --upgrade pip
+RUN apk add gcc musl-dev build-base
 
-WORKDIR /home/serve
+RUN adduser -D worker
+USER worker
+WORKDIR /home/worker
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+ENV PATH="/home/worker/.local/bin:${PATH}"
+COPY --chown=worker:worker requirements.txt requirements.txt
+RUN pip3 install --user -r requirements.txt
 
-COPY app app
-COPY frontend.py config.py ./
-
+COPY --chown=worker:worker . .
 ENV FLASK_APP frontend.py
-
-RUN chown -R serve:serve ./
-USER serve
 
 EXPOSE 80
 
